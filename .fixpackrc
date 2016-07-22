@@ -1,0 +1,20 @@
+{
+  "sortToTop": [
+    "name",
+    "version",
+    "description",
+    "keywords",
+    "author",
+    "contributors",
+    "license",
+    "homepage",
+    "bugs",
+    "repository",
+    "main",
+    "bin",
+    "man",
+    "files",
+    "directories",
+    "scripts"
+  ]
+}

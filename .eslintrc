@@ -1,0 +1,79 @@
+{
+  "extend": "eslint-config-airbnb",
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "parser": "babel-eslint",
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+
+  "plugins": [
+    "import",
+    "react"
+  ],
+
+  "rules": {
+    //Possible Errors
+    "no-console": "error",
+    "no-unexpected-multiline": "error",
+
+    // Best Practices
+    "dot-location": ["error", "property"],
+    "no-implicit-globals": "error",
+    "no-invalid-this": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-useless-call": "error",
+
+    // Variables
+    "no-catch-shadow": "error",
+    "no-label-var": "error",
+    "no-undef-init": "error",
+    "no-undefined": "error",
+    "no-use-before-define": ["error", "nofunc"],
+
+    // Node.js
+    "callback-return": "error",
+    "no-path-concat": "error",
+
+    // Stylistic Issues
+    "linebreak-style": ["error", "unix"],
+
+    // ECMAScript 6
+    "arrow-parens": "error",
+    "constructor-super": "error",
+    "generator-star-spacing": ["error", "after"],
+    "no-this-before-super": "error",
+    "prefer-spread": "error",
+
+    // React
+    "react/no-danger": "error",
+    "react/no-deprecated": "error",
+    "react/no-did-mount-set-state": "error",
+    "react/no-did-update-set-state": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-is-mounted": "error",
+    "react/no-set-state": "error",
+    "react/no-string-refs": "error",
+    "react/require-extension": ["error", {"extensions": [".js", ".jsx"]}],
+    "react/wrap-multilines": "error",
+
+    // JSX
+    "react/jsx-equals-spacing": "error",
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-key": "error",
+    "react/jsx-max-props-per-line": ["error", {"maximum": 3}],
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-space-before-closing": "error"
+  }
+}
