@@ -25,20 +25,16 @@ const store = createStore(combineReducers({
 ### 2. Server-Side Rendering (Optional)
 
 ```javascript
-import { applyRouterMiddleware, match } from 'react-router';
-import { useAsyncLoader, loadOnServer } from 'redux-async-loader';
+import { applyRouterMiddleware, match, RouterContext } from 'react-router';
+import { loadOnServer } from 'redux-async-loader';
 
 match({ history, routes }, (error, redirectLocation, renderProps) => {
   // ...
 
   loadOnServer(renderProps, store).then(() => {
-    const RenderWithMiddleware = applyRouterMiddleware(
-      useAsyncLoader(),
-    );
-
     const content = renderToString(
       <Provider store={store} key="provider">
-        <RenderWithMiddleware {...renderProps} />
+        <RouterContext {...renderProps} />
       </Provider>
     );
   });
@@ -216,7 +212,6 @@ Creates Higher-order Component for async data loading by mounting and updating.
         * `props` *(Object)*: The props passed from parent component.
         * `store`: *(Object)*: Redux's store object.
     * Returns
-        * *(Promise)*
         * *(Promise)*: Fulfilled when data loading is completed.
 
 ##### Returns
