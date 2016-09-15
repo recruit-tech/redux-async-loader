@@ -124,13 +124,13 @@ explicitly if you want to use store's state.
 If you want to invoke `asyncLoader()` when just querystring (not path) is changed, you must specify key names of querystring to router.
 
 ```
-<Route path="items" component=ItemList queryKeys="q, page" ... />
+<Route path="items" component=ItemList asyncLoaderProps={{queryKeys: "q, page"}} ... />
 ```
 
 Or, you can use the wildcard for any keys of querystring:
 
 ```
-<Route path="items" component=ItemList queryKeys="*" ... />
+<Route path="items" component=ItemList asyncLoaderProps={{queryKeys: "*"}} ... />
 ```
 
 ### 5. Async data loading by mounting/updating (client-side rendering only)
