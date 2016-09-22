@@ -1,6 +1,6 @@
 {
   "name": "redux-async-loader",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Async data loader for Redux apps.",
   "keywords": [
     "async",
