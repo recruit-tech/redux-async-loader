@@ -31,7 +31,9 @@
     "eslint": "eslint src",
     "fixpack": "fixpack",
     "jscs": "jscs src",
-    "lint": "npm-run-all eslint jscs"
+    "lint": "npm-run-all eslint jscs",
+    "preversion": "npm-run-all lint",
+    "version": "npm-run-all clean build"
   },
   "dependencies": {
     "hoist-non-react-statics": "^1.0.0"
