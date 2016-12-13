@@ -55,11 +55,11 @@
     "jscs": "2.11.0",
     "npm-run-all": "2.3.0",
     "react": "15.2.1",
-    "react-router": "2.6.0",
+    "react-router": "^3.0.0",
     "rimraf": "2.5.3"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-router": "^2.3.0"
+    "react-router": "^2.3.0 || ^3.0.0"
   }
 }
