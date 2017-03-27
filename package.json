@@ -36,8 +36,7 @@
     "version": "npm-run-all clean build"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^1.0.0",
-    "react-router": "^4.0.0"
+    "hoist-non-react-statics": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.11.4",
