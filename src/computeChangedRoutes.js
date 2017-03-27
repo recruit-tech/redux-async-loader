@@ -5,7 +5,7 @@
  *   https://github.com/reactjs/react-router/blob/master/LICENSE.md
  */
 
-import { getParamNames } from 'react-router/lib/PatternUtils';
+import { getParamNames } from './PatternUtils';
 
 export default function computeChangedRoutes(prevState, nextState) {
   const prevRoutes = prevState && prevState.routes;
