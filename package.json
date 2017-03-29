@@ -1,6 +1,6 @@
 {
   "name": "redux-async-loader",
-  "version": "1.2.1",
+  "version": "2.0.0-alpha1",
   "description": "Async data loader for Redux apps.",
   "keywords": [
     "async",
@@ -60,6 +60,6 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-router": "^2.3.0 || ^3.0.0"
+    "react-router": "^4.0.0"
   }
 }
