@@ -115,7 +115,7 @@ export default compose(
 ```
 
 Unlike
-[redux-async-conneect](https://www.npmjs.com/package/redux-async-connect),
+[redux-async-connect](https://www.npmjs.com/package/redux-async-connect),
 redux-async-loader itself doesn't connect to store.
 You have to call
 [connect()](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)
