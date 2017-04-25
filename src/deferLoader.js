@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, cloneElement } from 'react';
+import React, { Component, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import hoistStatics from 'hoist-non-react-statics';
 
 export default function deferLoader(loader) {
