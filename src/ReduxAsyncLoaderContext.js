@@ -7,7 +7,7 @@
  *   https://github.com/ryanflorence/async-props/blob/master/LICENSE.md
  */
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import computeChangedRoutes from './computeChangedRoutes';
 import { beginAsyncLoad, endAsyncLoad, skipAsyncLoad } from './actions';

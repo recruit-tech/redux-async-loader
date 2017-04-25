@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import hoistStatics from 'hoist-non-react-statics';
 
@@ -30,6 +30,6 @@ export default function deferLoader(loader) {
   };
 }
 
-function getDisplayName(Component) {
-  return Component.displayName || Component.name;
+function getDisplayName(component) {
+  return component.displayName || component.name;
 }

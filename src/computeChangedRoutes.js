@@ -15,7 +15,6 @@ export default function computeChangedRoutes(prevState, nextState) {
     return nextRoutes;
   }
 
-  let parentIsLeaving = false;
   const leaveIndex = prevRoutes.findIndex((route) => (
     nextRoutes.indexOf(route) === -1 ||
     routeParamsChanged(route, prevState, nextState) ||
@@ -24,7 +23,7 @@ export default function computeChangedRoutes(prevState, nextState) {
   ));
   const leaveRoutes = leaveIndex === -1 ? [] : prevRoutes.slice(leaveIndex);
 
-  return nextRoutes.filter(function (route) {
+  return nextRoutes.filter((route) => {
     const isNew = prevRoutes.indexOf(route) === -1;
     const paramsChanged = leaveRoutes.indexOf(route) !== -1;
 
@@ -45,7 +44,7 @@ function routeParamsChanged(route, prevState, nextState) {
 }
 
 function queryParamsChanged(route, prevState, nextState) {
-  const queryKeys = route.asyncLoaderProps && route.asyncLoaderProps.queryKeys || route.queryKeys;
+  const queryKeys = (route.asyncLoaderProps && route.asyncLoaderProps.queryKeys) || route.queryKeys;
   if (!queryKeys) {
     return false;
   }
@@ -66,6 +65,6 @@ function queryParamsChanged(route, prevState, nextState) {
 }
 
 function routeChanged(route, prevState, nextState) {
-  const routeChanged = route.asyncLoaderProps && route.asyncLoaderProps.routeChanged;
-  return routeChanged && routeChanged(route, prevState, nextState);
+  const changed = route.asyncLoaderProps && route.asyncLoaderProps.routeChanged;
+  return changed && changed(route, prevState, nextState);
 }
