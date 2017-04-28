@@ -53,7 +53,7 @@ class ReduxAsyncLoaderContext extends Component {
     const indexDiff = nextProps.components.length - enterRoutes.length;
     const components = enterRoutes.map((route, index) => nextProps.components[indexDiff + index]);
 
-    this.loadAsync(Object.assign({}, nextProps, { components }));
+    this.loadAsync(Object.assign({}, nextProps, { components, prevProps: this.props }));
   }
 
   shouldComponentUpdate(nextProps, nextState) {
