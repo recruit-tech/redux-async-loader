@@ -1,11 +1,29 @@
 {
   "presets": [
-    "es2015",
-    "react"
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "ie": "11",
+          "ios": "10"
+        },
+        "useBuiltIns": false
+      }
+    ],
+    "@babel/react"
   ],
   "env": {
     "development": {
       "presets": [
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "node": 10
+            }
+          }
+        ],
+        "@babel/react",
         "power-assert"
       ]
     }
