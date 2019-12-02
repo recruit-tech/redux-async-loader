@@ -19,7 +19,8 @@
           "@babel/env",
           {
             "targets": {
-              "node": 10
+              "ie": "11",
+              "ios": "10"
             }
           }
         ],
