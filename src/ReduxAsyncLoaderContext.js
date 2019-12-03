@@ -16,8 +16,8 @@ import loadAsync from './loadAsync';
 import { reducerName } from './names';
 
 class ReduxAsyncLoaderContext extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
       children: null,
@@ -32,7 +32,7 @@ class ReduxAsyncLoaderContext extends Component {
     }
 
     if (loaded && onServer) {
-      const { dispatch } = this.context.store;
+      const { dispatch } = this.props.ctx.store;
       dispatch(skipAsyncLoad(false));
       return;
     }
@@ -46,24 +46,34 @@ class ReduxAsyncLoaderContext extends Component {
     }
 
     const enterRoutes = computeChangedRoutes(
-      { routes: this.props.routes, params: this.props.params, location: this.props.location },
-      { routes: nextProps.routes, params: nextProps.params, location: nextProps.location }
+      {
+        routes: this.props.routes,
+        params: this.props.params,
+        location: this.props.location,
+      },
+      {
+        routes: nextProps.routes,
+        params: nextProps.params,
+        location: nextProps.location,
+      }
     );
 
     const indexDiff = nextProps.components.length - enterRoutes.length;
-    const components = enterRoutes.map((route, index) => nextProps.components[indexDiff + index]);
+    const components = enterRoutes.map(
+      (_route, index) => nextProps.components[indexDiff + index]
+    );
 
     this.loadAsync(Object.assign({}, nextProps, { components }));
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate() {
     const { loading } = this.getAsyncLoaderState();
     return !loading;
   }
 
   getAsyncLoaderState() {
     const { getAsyncLoaderState } = this.props;
-    const { getState } = this.context.store;
+    const { getState } = this.props.ctx.store;
     return getAsyncLoaderState(getState());
   }
 
@@ -75,7 +85,7 @@ class ReduxAsyncLoaderContext extends Component {
       return;
     }
 
-    const { store } = this.context;
+    const { store } = this.props.ctx;
     const { dispatch } = store;
     this.beginLoad(dispatch, children)
       .then(() => loadAsync(flattened, props, store))
@@ -110,13 +120,10 @@ class ReduxAsyncLoaderContext extends Component {
 
   render() {
     const { loading } = this.getAsyncLoaderState();
+
     return loading ? this.state.children : this.props.children;
   }
 }
-
-ReduxAsyncLoaderContext.contextTypes = {
-  store: PropTypes.object.isRequired,
-};
 
 ReduxAsyncLoaderContext.propTypes = {
   children: PropTypes.node.isRequired,
@@ -131,7 +138,7 @@ ReduxAsyncLoaderContext.defaultProps = {
   getAsyncLoaderState(state) {
     return state[reducerName];
   },
-  onError(error) {
+  onError(_error) {
     // ignore
   },
 };

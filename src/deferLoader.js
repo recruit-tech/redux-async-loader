@@ -1,32 +1,36 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { ReactReduxContext } from 'react-redux';
 import hoistStatics from 'hoist-non-react-statics';
 
 export default function deferLoader(loader) {
   return (WrappedComponent) => {
     class WrapperComponent extends Component {
       componentDidMount() {
-        const { store } = this.context;
+        const { store } = this.props.ctx;
         loader(this.props, store);
       }
 
       componentWillReceiveProps(nextProps) {
-        const { store } = this.context;
+        const { store } = this.props.ctx;
         loader(nextProps, store);
       }
 
       render() {
-        return (
-          <WrappedComponent {...this.props} />
-        );
+        return <WrappedComponent {...this.props} />;
       }
     }
 
-    WrapperComponent.displayName = `deferLoader(${getDisplayName(WrappedComponent)})`;
-    WrapperComponent.contextTypes = {
-      store: PropTypes.object.isRequired,
-    };
-    return hoistStatics(WrapperComponent, WrappedComponent);
+    WrapperComponent.displayName = `deferLoader(${getDisplayName(
+      WrappedComponent
+    )})`;
+
+    const WrapperComponentWithContext = () => (
+      <ReactReduxContext.Consumer>
+        {({ store }) => <WrapperComponent ctx={{ store }} />}
+      </ReactReduxContext.Consumer>
+    );
+
+    return hoistStatics(WrapperComponentWithContext, WrappedComponent);
   };
 }
 
