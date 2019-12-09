@@ -24,9 +24,9 @@ export default function deferLoader(loader) {
       WrappedComponent
     )})`;
 
-    const WrapperComponentWithContext = () => (
+    const WrapperComponentWithContext = (props) => (
       <ReactReduxContext.Consumer>
-        {({ store }) => <WrapperComponent ctx={{ store }} />}
+        {({ store }) => <WrapperComponent ctx={{ store }} {...props} />}
       </ReactReduxContext.Consumer>
     );
 
