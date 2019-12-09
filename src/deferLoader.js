@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { ReactReduxContext } from "react-redux";
-import hoistStatics from "hoist-non-react-statics";
+import React, { Component } from 'react';
+import { ReactReduxContext } from 'react-redux';
+import hoistStatics from 'hoist-non-react-statics';
 
 export default function deferLoader(loader) {
-  return WrappedComponent => {
+  return (WrappedComponent) => {
     class WrapperComponent extends Component {
       componentDidMount() {
         const { store } = this.props.ctx;
@@ -24,7 +24,7 @@ export default function deferLoader(loader) {
       WrappedComponent
     )})`;
 
-    const WrapperComponentWithContext = props => (
+    const WrapperComponentWithContext = (props) => (
       <ReactReduxContext.Consumer>
         {({ store }) => <WrapperComponent ctx={{ store }} {...props} />}
       </ReactReduxContext.Consumer>
