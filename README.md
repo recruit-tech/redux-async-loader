@@ -4,13 +4,17 @@ Async data loader for Redux apps with React-Router.
 
 ## CAUTION
 
-`redux-async-loader` is incompatible with `react-redux@5`
+`@recruit-tech/redux-async-loader` is incompatible with `react-redux@5`
 
-For `react-redux@5`, you neeed to use the 1.x release of redux-async-loader.
+For `react-redux@5`, you neeed to use the 1.x release of `redux-async-loader`.
 
 ## Installation
 
 ```
+# react-redux: >= 6
+npm install --save @recruit-tech/redux-async-loader
+
+# react-redux: <= 5
 npm install --save redux-async-loader
 ```
 
