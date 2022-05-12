@@ -40,7 +40,7 @@ class ReduxAsyncLoaderContext extends Component {
     this.loadAsync(this.props);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.location === this.props.location) {
       return;
     }
