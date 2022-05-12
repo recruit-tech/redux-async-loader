@@ -10,7 +10,7 @@ export default function deferLoader(loader) {
         loader(this.props, store);
       }
 
-      componentWillReceiveProps(nextProps) {
+      UNSAFE_componentWillReceiveProps(nextProps) {
         const { store } = this.props.ctx;
         loader(nextProps, store);
       }

@@ -34,8 +34,8 @@
     "version": "npm-run-all clean build"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^1.0.0",
-    "prop-types": "^15.0.0"
+    "hoist-non-react-statics": "^3.3.2",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
